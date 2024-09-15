@@ -16,3 +16,5 @@ jobs:
 
         - name: Read Files
           run: cat README.md  
+        - name: Executing shell scripts
+          run: ./shell-script.sh
