@@ -18,4 +18,6 @@ jobs:
           run: cat README.md
 
         - name: Executing shell scripts
-          run: .github/workflows/shell-script.sh
+          run: |
+            chmod +x .github/workflows/shell-script.sh
+            .github/workflows/shell-script.sh
