@@ -15,6 +15,7 @@ jobs:
           run: ls -ltra
 
         - name: Read Files
-          run: cat README.md  
+          run: cat README.md
+
         - name: Executing shell scripts
-          run: ./shell-script.sh
+          run: .github/workflows/shell-script.sh
