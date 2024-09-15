@@ -12,7 +12,7 @@ jobs:
           run: echo "Welcome to GitHub Actions"
         
         - name: List all files
-          run: ls
+          run: ls -ltra
 
         - name: Read Files
           run: cat README.md  
