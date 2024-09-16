@@ -18,12 +18,15 @@ jobs:
                 name: dragon-txt-file
                 path: dragon.txt
 
-    # job_2:
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: Installing Cowsay Programm
-    #           run: sudo apt-get install cowsay -y
-    #         - name: Executing Cowsay CMD
-    #           run: cowsay -f dragon "RUN in Cover, I AM DRAGON .... " >> dragon.txt
-    #         - name: Sleep for 10 seconds
-    #           run: sleep 10
+    job_2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Installing Cowsay Programm
+              run: sudo apt-get install cowsay -y
+            - name: Executing Cowsay CMD
+              run: cowsay -f dragon "RUN in Cover, I AM DRAGON .... " >> dragon.txt
+            - name: Download dragon.txt file
+              uses: actions/download-artifact@v4
+              with:
+                name: dragon-txt-file
+                
