@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Docker Push
-        run: echo docker push -t $CONTAINER_REGISTRY/DOCKER_USERNAME/IMAGE_NAME:latest
+        run: echo docker push -t $CONTAINER_REGISTRY/${{vars.DOCKER_USERNAME}}/IMAGE_NAME:latest
 
   run-docker:
    needs: deploy-to-docker
