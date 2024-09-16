@@ -1,34 +1,34 @@
 name: expoloring env variables
 on: push
-
+env:
+      CONTAINER_REGISTRY: docker.io
+      DOCKER_USERNAME: imranburki
+      IMAGE_NAME: github-actions-nginx
 jobs:
 
   docker-login:
-    env:
-      CONTAINER_REGISTRY: docker.io
-      DOCKER_USERNAME: imranburki
+    
     runs-on: ubuntu-latest
     steps:
       - name: Docker Build
-        env:
-         IMAGE_NAME: github-actions-nginx
         run: echo docker build -t $CONTAINER_REGISTRY/DOCKER_USERNAME/IMAGE_NAME:latest
         
       - name: Docker Login
         env:
-         CONTAINER_REGISTRY: docker.io
-         DOCKER_USERNAME: imranburki
          DOCKER_PASSWORD: Imran_ibasuk123
          
         run: echo docker login --username=${{env.DOCKER_USERNAME}} --password=${{env.DOCKER_PASSWORD}}
   
         
   deploy-to-docker:
-    env:
-      CONTAINER_REGISTRY: docker.io
-      DOCKER_USERNAME: imranburki
-      IMAGE_NAME: github-actions-nginx
     runs-on: ubuntu-latest
     steps:
       - name: Docker Push
         run: echo docker push -t $CONTAINER_REGISTRY/DOCKER_USERNAME/IMAGE_NAME:latest
+
+  run-docker:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Docker Push
+       run: echo docker run -d -p 8000:8000 $CONTAINER_REGISTRY/DOCKER_USERNAME/IMAGE_NAME:latest
+      
