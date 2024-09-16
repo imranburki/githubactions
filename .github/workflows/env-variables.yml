@@ -21,12 +21,14 @@ jobs:
   
         
   deploy-to-docker:
+    needs: docker-login
     runs-on: ubuntu-latest
     steps:
       - name: Docker Push
         run: echo docker push -t $CONTAINER_REGISTRY/DOCKER_USERNAME/IMAGE_NAME:latest
 
   run-docker:
+   needs: deploy-to-docker
    runs-on: ubuntu-latest
    steps:
      - name: Docker Run
