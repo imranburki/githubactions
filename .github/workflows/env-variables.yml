@@ -13,10 +13,7 @@ jobs:
         run: echo docker build -t $CONTAINER_REGISTRY/DOCKER_USERNAME/IMAGE_NAME:latest
         
       - name: Docker Login
-        # env:
-        #  DOCKER_PASSWORD: Imran_ibasuk123
-         
-        run: echo docker login --username=${{vars.DOCKER_USERNAME}} --password=${{vars.DOCKER_PASSWORD}}
+        run: echo docker login --username=${{vars.DOCKER_USERNAME}} --password=${{secrets.DOCKER_PASSWORD}}
   
         
   deploy-to-docker:
