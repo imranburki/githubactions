@@ -1,0 +1,15 @@
+name: expoloring env variables
+
+on: push
+
+jobs: 
+    env-variables:
+        runs-on: ubuntu-lates
+
+        steps:
+            - name: Docker Build
+            env:
+                CONTAINER_REGISTRY: docker.io
+                DOCKER_USERNAME: imranburki
+                IMAGE_NAME: github-actions-nginx
+        run: echo docker build -t ${{CONTAINER_REGISTRY/DOCKER_USERNAME/IMAGE_NAME}}:latest
